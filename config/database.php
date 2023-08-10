@@ -19,21 +19,32 @@ return [
     // 各种数据库配置
     'connections' => [
         'mysql' => [
-            'driver'      => 'mysql',
-            'host'        => '127.0.0.1',
-            'port'        => 3306,
-            'database'    => 'test',
-            'username'    => 'root',
-            'password'    => '',
-            'unix_socket' => '',
-            'charset'     => 'utf8',
-            'collation'   => 'utf8_unicode_ci',
-            'prefix'      => '',
-            'strict'      => true,
-            'engine'      => null,
+            'driver' => 'mysql',
+            'host' => getenv('DB_HOST', '127.0.0.1'),
+            'port' => getenv('DB_PORT', '3306'),
+            'database' => getenv('DB_DATABASE', 'forge'),
+            'username' => getenv('DB_USERNAME', 'forge'),
+            'password' => getenv('DB_PASSWORD', ''),
+            'unix_socket' => getenv('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
             'options' => [
                 \PDO::ATTR_TIMEOUT => 3
             ]
+        ],
+    ],
+    'mongodb' => [
+        'driver' => 'mongodb',
+        'host' => '127.0.0.1',
+        'port' => 27017,
+        'database' => 'test',
+        'username' => null,
+        'password' => null,
+        'options' => [
+            'appname' => 'homestead'
         ],
     ],
 ];

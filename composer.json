@@ -33,7 +33,9 @@
     "symfony/var-dumper": "^6.3",
     "illuminate/redis": "^10.18",
     "symfony/cache": "^6.3",
-    "webman/console": "^1.2"
+    "webman/console": "^1.2",
+    "vlucas/phpdotenv": "^5.5",
+    "robmorgan/phinx": "^0.13.4"
   },
   "suggest": {
     "ext-event": "For better performance. "
