@@ -38,11 +38,11 @@ return [
     ],
     'mongodb' => [
         'driver' => 'mongodb',
-        'host' => '127.0.0.1',
-        'port' => 27017,
-        'database' => 'test',
-        'username' => null,
-        'password' => null,
+        'host' => env('DB_HOST', '127.0.0.1'),
+        'port' => env('DB_HOST', 27017),
+        'database' => env('DB_DATABASE', 'forge'),
+        'username' => env('DB_USERNAME', 'forge'),
+        'password' => env('DB_PASSWORD', ''),
         'options' => [
             'appname' => 'homestead'
         ],
