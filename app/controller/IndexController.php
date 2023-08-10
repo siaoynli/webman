@@ -16,7 +16,7 @@ class IndexController
 
     public function view(Request $request)
     {
-        return view('index/view', ['name' => 'webman']);
+        return view('index/index', ['name' => 'webman']);
     }
 
     public function json(Request $request)
