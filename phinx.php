@@ -1,5 +1,9 @@
 <?php
 
+require_once __DIR__ . '/vendor/autoload.php';
+use Dotenv\Dotenv;
+Dotenv::createImmutable(base_path())->load();
+
 return
     [
         'paths' => [
@@ -11,30 +15,30 @@ return
             'default_environment' => 'development',
             'production' => [
                 'adapter' => 'mysql',
-                'host' => getenv('DB_HOST', '127.0.0.1'),
-                'name' => getenv('DB_DATABASE', 'forge'),
-                'user' => getenv('DB_USERNAME', 'forge'),
-                'pass' => getenv('DB_PASSWORD', ''),
-                'port' => getenv('DB_PORT', '3306'),
-                'charset' => 'utf8',
+                'host' => env('DB_HOST', '127.0.0.1'),
+                'name' => env('DB_DATABASE', 'forge'),
+                'user' => env('DB_USERNAME', 'forge'),
+                'pass' => env('DB_PASSWORD', ''),
+                'port' => env('DB_PORT', '3306'),
+                'charset' => 'utf8mb4',
             ],
             'development' => [
                 'adapter' => 'mysql',
-                'host' => 'localhost',
-                'name' => 'development_db',
-                'user' => 'root',
-                'pass' => '',
-                'port' => '3306',
-                'charset' => 'utf8',
+                'host' => env('DB_HOST', '127.0.0.1'),
+                'name' => env('DB_DATABASE', 'forge'),
+                'user' => env('DB_USERNAME', 'forge'),
+                'pass' => env('DB_PASSWORD', ''),
+                'port' => env('DB_PORT', '3306'),
+                'charset' => 'utf8mb4',
             ],
             'testing' => [
                 'adapter' => 'mysql',
-                'host' => 'localhost',
-                'name' => 'testing_db',
-                'user' => 'root',
-                'pass' => '',
-                'port' => '3306',
-                'charset' => 'utf8',
+                'host' => env('DB_HOST', '127.0.0.1'),
+                'name' => env('DB_DATABASE', 'forge'),
+                'user' => env('DB_USERNAME', 'forge'),
+                'pass' => env('DB_PASSWORD', ''),
+                'port' => env('DB_PORT', '3306'),
+                'charset' => 'utf8mb4',
             ]
         ],
         'version_order' => 'creation'

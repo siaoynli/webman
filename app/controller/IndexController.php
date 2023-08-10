@@ -9,7 +9,7 @@ class IndexController
     public function index(Request $request)
     {
 
-        return ping();
+        return env('APP_NAME', 'webman');
     }
 
     public function view(Request $request)
