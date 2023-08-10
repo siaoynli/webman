@@ -45,7 +45,8 @@
       "app\\View\\Components\\": "./app/view/components"
     },
     "files": [
-      "./support/helpers.php"
+      "./support/helpers.php",
+      "app/utils/helpers.php"
     ]
   },
   "scripts": {
