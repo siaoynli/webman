@@ -3,13 +3,15 @@
 namespace app\controller;
 
 use support\Request;
+use support\Db;
 
 class IndexController
 {
     public function index(Request $request)
     {
 
-        return env('APP_NAME', 'webman');
+        $users = Db::table('users')->get();
+        return json(["users"=>$users,"name"=>"webman"]);
     }
 
     public function view(Request $request)

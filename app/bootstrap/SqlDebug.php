@@ -30,22 +30,17 @@ class SqlDebug implements Bootstrap
 
     public static function start($worker)
     {
-        // Is it console environment ?
         $is_console = !$worker;
         if ($is_console) {
-            // If you do not want to execute this in console, just return.
             return;
         }
 
         Db::connection()->listen(function (QueryExecuted $queryExecuted) {
             if (isset($queryExecuted->sql) and $queryExecuted->sql !== "select 1") {
                 $bindings = $queryExecuted->bindings;
-                $sql = array_reduce(
-                    $bindings,
-                    function ($sql, $binding) {
-                        return preg_replace('/\?/', is_numeric($binding) ? $binding : "'" . $binding . "'", $sql, 1);
-                    },
-                    $queryExecuted->sql
+                $sql = $queryExecuted->connection->getQueryGrammar()->substituteBindingsIntoRawSql(
+                    $queryExecuted->sql,
+                    $queryExecuted->connection->prepareBindings($bindings)
                 );
                 self::dumpvar("[sql] [time:{$queryExecuted->time} ms] [{$sql}]");
             }
