@@ -2,6 +2,7 @@
 
 namespace app\controller;
 
+use app\model\User;
 use support\Request;
 use support\Db;
 
@@ -10,7 +11,7 @@ class IndexController
     public function index(Request $request)
     {
 
-        $users = Db::table('users')->get();
+        $users= User::all();
         return json(["users"=>$users,"name"=>"webman"]);
     }
 

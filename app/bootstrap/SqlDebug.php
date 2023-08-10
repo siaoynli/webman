@@ -38,9 +38,12 @@ class SqlDebug implements Bootstrap
         Db::connection()->listen(function (QueryExecuted $queryExecuted) {
             if (isset($queryExecuted->sql) and $queryExecuted->sql !== "select 1") {
                 $bindings = $queryExecuted->bindings;
-                $sql = $queryExecuted->connection->getQueryGrammar()->substituteBindingsIntoRawSql(
-                    $queryExecuted->sql,
-                    $queryExecuted->connection->prepareBindings($bindings)
+                $sql = array_reduce(
+                    $bindings,
+                    function ($sql, $binding) {
+                        return preg_replace('/\?/', is_numeric($binding) ? $binding : "'" . $binding . "'", $sql, 1);
+                    },
+                    $queryExecuted->sql
                 );
                 self::dumpvar("[sql] [time:{$queryExecuted->time} ms] [{$sql}]");
             }
