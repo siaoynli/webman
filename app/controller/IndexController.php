@@ -2,24 +2,25 @@
 
 namespace app\controller;
 
-use app\model\User;
 use support\Request;
-use support\Db;
-use Webman\RedisQueue\Redis;
 use Webman\RedisQueue\Client;
+use Webman\RedisQueue\Redis;
+use WebmanTech\LaravelCache\Facades\Cache;
 
 class IndexController
 {
     public function index(Request $request)
     {
+        Cache::put("name", "webman");
 
-        $users= User::all();
-        return json(["users"=>$users,"name"=>get_table_list()]);
+        return json(["name" => get_table_list()]);
     }
 
     public function view(Request $request)
     {
-        return view('index/index', ['name' => 'webman']);
+       $name= Cache::get("name","webman-nocache");
+
+        return view('index/index', ['name' =>$name]);
     }
 
     public function json(Request $request)
