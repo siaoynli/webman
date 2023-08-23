@@ -12,7 +12,7 @@ class IndexController
     {
 
         $users= User::all();
-        return json(["users"=>$users,"name"=>"webman"]);
+        return json(["users"=>$users,"name"=>get_table_list()]);
     }
 
     public function view(Request $request)
