@@ -38,7 +38,9 @@
     "robmorgan/phinx": "^0.13.4",
     "jenssegers/mongodb": "^3.9.0",
     "psr/container": "^1.1.1",
-    "webman/blade": "^1.5"
+    "webman/blade": "^1.5",
+    "webman/redis-queue": "^1.2",
+    "webman-tech/laravel-console": "^1.0"
   },
   "suggest": {
     "ext-event": "For better performance. "
@@ -51,8 +53,7 @@
       "app\\View\\Components\\": "./app/view/components"
     },
     "files": [
-      "./support/helpers.php",
-      "app/utils/helpers.php"
+      "./support/helpers.php"
     ]
   },
   "scripts": {
