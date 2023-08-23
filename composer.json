@@ -40,7 +40,13 @@
     "webman/blade": "^1.5",
     "webman/redis-queue": "^1.2",
     "webman-tech/laravel-console": "^1.0",
-    "webman-tech/laravel-cache": "^1.2"
+    "webman-tech/laravel-cache": "^1.2",
+    "webman-tech/laravel-http-client": "^1.2",
+    "webman-tech/laravel-validation": "^1.2",
+    "webman-tech/laravel-filesystem": "^3.1",
+    "league/flysystem": "^3.15",
+    "iidestiny/flysystem-oss": "^4.2",
+    "hhink/webman-sms": "^1.0"
   },
   "suggest": {
     "ext-event": "For better performance. "
