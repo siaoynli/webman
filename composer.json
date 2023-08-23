@@ -35,7 +35,6 @@
     "symfony/cache": "^6.3",
     "webman/console": "^1.2",
     "vlucas/phpdotenv": "^5.5",
-    "robmorgan/phinx": "^0.13.4",
     "jenssegers/mongodb": "^3.9.0",
     "psr/container": "^1.1.1",
     "webman/blade": "^1.5",
